@@ -1,3 +1,4 @@
+import { RecipeService } from './../recipes/recipe.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private rs: RecipeService) { }
 
   ngOnInit() {
+  }
+
+  onStore() {
+    this.rs.storeData().subscribe(
+      (data) => console.log(data),
+      (data) => console.log(data)
+    );
   }
 
 }
